@@ -1483,6 +1483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019774350}
   - component: {fileID: 2019774349}
+  - component: {fileID: 2019774351}
   - component: {fileID: 2019774347}
   - component: {fileID: 2019774348}
   m_Layer: 0
@@ -1507,7 +1508,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.4
+  m_GravityScale: 0.2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1587,6 +1588,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2019774351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019774346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6680f81aecfa24daf3ffa1eb6d8635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2019774349}
+  movementSpeed: 40
 --- !u!1 &2042327796
 GameObject:
   m_ObjectHideFlags: 0
