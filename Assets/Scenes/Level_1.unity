@@ -741,12 +741,12 @@ PrefabInstance:
     - target: {fileID: 7982310339602908942, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.9925026
+      value: -0.9925031
       objectReference: {fileID: 0}
     - target: {fileID: 7982310339602908942, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12222311
+      value: 0.12221971
       objectReference: {fileID: 0}
     - target: {fileID: 7982310339602908942, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
@@ -771,12 +771,12 @@ PrefabInstance:
     - target: {fileID: 8527808439368887675, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20469554
+      value: -0.20469074
       objectReference: {fileID: 0}
     - target: {fileID: 8527808439368887675, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9788257
+      value: 0.97882676
       objectReference: {fileID: 0}
     - target: {fileID: 8527808439368887675, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
@@ -1302,8 +1302,7 @@ PolygonCollider2D:
       - {x: -1.3292423, y: -8.533727}
       - {x: -5.446432, y: -7.113196}
       - {x: -8.556736, y: -6.9684258}
-      - {x: -11.5810795, y: -6.0550866}
-      - {x: -12.186815, y: -5.836353}
+      - {x: -11.747113, y: -5.9096365}
       - {x: -17.20267, y: -4.938069}
       - {x: -19.160053, y: -4.323378}
       - {x: -19.199999, y: -10.799999}
@@ -1466,7 +1465,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859836149}
-  m_LocalRotation: {x: -0, y: -0, z: 0.033190656, w: 0.9994491}
+  m_LocalRotation: {x: -0, y: -0, z: 0.03318916, w: 0.99944913}
   m_LocalPosition: {x: 1.846, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1508,7 +1507,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.2
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1564,14 +1563,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 400
   m_MovementSmoothing: 0.05
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  m_GroundCheck: {fileID: 779016806}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &2019774350
 Transform:
   m_ObjectHideFlags: 0
@@ -1580,7 +1571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019774346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8871, y: -2.4733, z: 0}
+  m_LocalPosition: {x: -7.72, y: -2.4733, z: 0}
   m_LocalScale: {x: 0.28, y: 0.28, z: 0.28}
   m_Children:
   - {fileID: 779016806}
