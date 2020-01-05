@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hover
+  m_Name: Player-Hover-Forward
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 58.075005}
+        value: {x: 0, y: 0, z: -4.1130004}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -27,17 +27,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.15
-        value: {x: 0, y: 0, z: 51.165}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: 0, y: 0, z: 58.075005}
+        time: 1.7
+        value: {x: 0, y: 0, z: 3.7230003}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -47,13 +38,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 10.413}
+        value: {x: 0, y: 0, z: 7.0010004}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -61,17 +52,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.15
-        value: {x: 0, y: 0, z: 9.635}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: 0, y: 0, z: 10.413}
+        time: 1.7
+        value: {x: 0, y: 0, z: 3.3400002}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -81,14 +63,14 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
   m_PositionCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -1.2833878, y: 1.0589476, z: 0}
+        value: {x: -0.56559193, y: 1.758289, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -96,17 +78,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.9
-        value: {x: -1.2833878, y: 1.07211, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: -1.2833878, y: 1.0589476, z: 0}
+        time: 1.7
+        value: {x: -1.4570203, y: 2.0503097, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -116,13 +89,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: LegLSolver/LegLSolver_Target
+    path: Malgor-v1/LegLSolver/LegLSolver_Target
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.454633, y: 1.0622958, z: 0}
+        value: {x: 0.3244468, y: 1.657942, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -130,17 +103,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.5166667
-        value: {x: -0.4019776, y: 1.0491333, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: -0.454633, y: 1.0622958, z: 0}
+        time: 1.7
+        value: {x: -0.5669833, y: 1.9038525, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -150,13 +114,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: LegRSolver/LegRSolver_Target
+    path: Malgor-v1/LegRSolver/LegRSolver_Target
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.366073, y: 3.4643285, z: 0}
+        value: {x: 0.067360066, y: 4.0074, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -164,17 +128,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.51666665
-        value: {x: -0.4450535, y: 3.4248395, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: -0.366073, y: 3.4643285, z: 0}
+        time: 1.7
+        value: {x: -0.685743, y: 3.9612918, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -184,13 +139,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ArmLSolver/ArmLSolver_Target
+    path: Malgor-v1/ArmLSolver/ArmLSolver_Target
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.6189385, y: 3.4426773, z: 0}
+        value: {x: 0.97280794, y: 3.0898798, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -198,17 +153,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.35
-        value: {x: 0.47, y: 3.4154427, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: 0.6189385, y: 3.4426773, z: 0}
+        time: 1.7
+        value: {x: 0.64229286, y: 3.0269241, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -218,41 +164,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ArmRSolver/ArmRSolver_Target
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 1.25
-        value: {x: 0, y: 0.2, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2.5
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: 
+    path: Malgor-v1/ArmRSolver/ArmRSolver_Target
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -264,49 +176,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 152577363
+      path: 2823054568
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3153499328
+      path: 447403387
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2709018429
+      path: 2365062
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 328656558
+      path: 2999625493
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 0
-      attribute: 1
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 3812834252
+      path: 947212587
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3980913656
+      path: 590588388
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -318,7 +223,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.5
+    m_StopTime: 1.7
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -339,7 +244,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1.2833878
+        value: -0.56559193
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -347,17 +252,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9
-        value: -1.2833878
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: -1.2833878
+        time: 1.7
+        value: -1.4570203
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -368,7 +264,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: LegLSolver/LegLSolver_Target
+    path: Malgor-v1/LegLSolver/LegLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -376,7 +272,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.0589476
+        value: 1.758289
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -384,17 +280,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9
-        value: 1.07211
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 1.0589476
+        time: 1.7
+        value: 2.0503097
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -405,7 +292,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: LegLSolver/LegLSolver_Target
+    path: Malgor-v1/LegLSolver/LegLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -421,16 +308,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -442,7 +320,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: LegLSolver/LegLSolver_Target
+    path: Malgor-v1/LegLSolver/LegLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -450,7 +328,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.454633
+        value: 0.3244468
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -458,17 +336,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.5166667
-        value: -0.4019776
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: -0.454633
+        time: 1.7
+        value: -0.5669833
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -479,7 +348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: LegRSolver/LegRSolver_Target
+    path: Malgor-v1/LegRSolver/LegRSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -487,7 +356,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.0622958
+        value: 1.657942
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -495,17 +364,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.5166667
-        value: 1.0491333
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 1.0622958
+        time: 1.7
+        value: 1.9038525
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -516,7 +376,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: LegRSolver/LegRSolver_Target
+    path: Malgor-v1/LegRSolver/LegRSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -532,16 +392,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.5166667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -553,7 +404,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: LegRSolver/LegRSolver_Target
+    path: Malgor-v1/LegRSolver/LegRSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -561,7 +412,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.366073
+        value: 0.067360066
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -569,17 +420,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.51666665
-        value: -0.4450535
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: -0.366073
+        time: 1.7
+        value: -0.685743
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -590,7 +432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: ArmLSolver/ArmLSolver_Target
+    path: Malgor-v1/ArmLSolver/ArmLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -598,7 +440,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 3.4643285
+        value: 4.0074
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -606,17 +448,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.51666665
-        value: 3.4248395
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 3.4643285
+        time: 1.7
+        value: 3.9612918
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -627,7 +460,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: ArmLSolver/ArmLSolver_Target
+    path: Malgor-v1/ArmLSolver/ArmLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -643,16 +476,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.51666665
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -664,81 +488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: ArmLSolver/ArmLSolver_Target
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.6189385
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1.35
-        value: 0.47
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 0.6189385
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.x
-    path: ArmRSolver/ArmRSolver_Target
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 3.4426773
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1.35
-        value: 3.4154427
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 3.4426773
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
-    path: ArmRSolver/ArmRSolver_Target
+    path: Malgor-v1/ArmLSolver/ArmLSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -754,53 +504,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.35
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.z
-    path: ArmRSolver/ArmRSolver_Target
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1.15
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -812,7 +516,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -828,16 +532,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.15
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -849,7 +544,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -857,7 +552,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 58.075005
+        value: -4.1130004
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -865,17 +560,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.15
-        value: 51.165
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 58.075005
+        time: 1.7
+        value: 3.7230003
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -886,7 +572,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -902,16 +588,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.15
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -923,7 +600,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -939,16 +616,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.15
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -960,7 +628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -968,7 +636,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 10.413
+        value: 7.0010004
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -976,17 +644,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.15
-        value: 9.635
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 10.413
+        time: 1.7
+        value: 3.3400002
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -997,7 +656,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1005,7 +664,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 0.97280794
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1013,17 +672,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 0
+        time: 1.7
+        value: 0.64229286
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1034,7 +684,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: 
+    path: Malgor-v1/ArmRSolver/ArmRSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1042,7 +692,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 3.0898798
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1050,17 +700,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.25
-        value: 0.2
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
-        value: 0
+        time: 1.7
+        value: 3.0269241
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1071,7 +712,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: 
+    path: Malgor-v1/ArmRSolver/ArmRSolver_Target
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1087,16 +728,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.5
+        time: 1.7
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1108,7 +740,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: 
+    path: Malgor-v1/ArmRSolver/ArmRSolver_Target
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1119,7 +751,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1129,7 +761,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1139,7 +771,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: bone_1/bone_14/bone_15/bone_16
+    path: Malgor-v1/SpineLower/SpineUpper/Neck
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1149,7 +781,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1159,7 +791,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1169,9 +801,9 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: bone_1/bone_2
+    path: Malgor-v1/SpineLower/SpineUpper/Neck/Head
     classID: 4
     script: {fileID: 0}
-  m_HasGenericRootTransform: 1
+  m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events: []
