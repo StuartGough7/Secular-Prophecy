@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -177.602
       objectReference: {fileID: 0}
+    - target: {fileID: -6285788894234220776, guid: 855193fa22c12144986da4181ef6913b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5483216680650398548, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -546,7 +551,7 @@ PrefabInstance:
     - target: {fileID: 1114953484008269840, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1460234585887191696, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
@@ -581,7 +586,7 @@ PrefabInstance:
     - target: {fileID: 1875862295903740821, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 39.246002
+      value: -3.042
       objectReference: {fileID: 0}
     - target: {fileID: 2218715766573921996, guid: 855193fa22c12144986da4181ef6913b,
         type: 3}
@@ -1500,17 +1505,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.07641486, y: 8.16382}
-      - {x: 0.108860224, y: 7.0053897}
-      - {x: -0.66602236, y: 5.943355}
-      - {x: -2.214483, y: 3.1214044}
-      - {x: -0.9390184, y: 3.2953205}
-      - {x: -1.38324, y: 1.6878657}
-      - {x: -0.2733861, y: 1.4357457}
+    - - {x: 0.6968192, y: 8.603158}
+      - {x: 0.79422855, y: 7.6028886}
+      - {x: -0.20911354, y: 5.8203406}
+      - {x: -1.5642644, y: 3.437727}
+      - {x: -0.077918604, y: 3.875246}
+      - {x: -0.43427265, y: 2.285364}
+      - {x: 0.55256575, y: 2.3847146}
       - {x: 0.65656394, y: 3.1307147}
-      - {x: 1.0793244, y: 5.5927563}
-      - {x: 0.6759899, y: 6.750109}
-      - {x: 0.73860717, y: 8.094996}
+      - {x: 1.553682, y: 5.4111176}
+      - {x: 1.6592504, y: 6.2254024}
+      - {x: 1.3086354, y: 7.400329}
+      - {x: 1.4591218, y: 8.569481}
 --- !u!114 &2019774349
 MonoBehaviour:
   m_ObjectHideFlags: 0
