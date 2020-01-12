@@ -2,7 +2,7 @@
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 400f;                                                                                      // Amount of force added when the player jumps.
+    [SerializeField] private float m_JumpForce = 30f;                                                                                      // Amount of force added when the player jumps.
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;                                                              // How much to smooth out the movement
 
     private Rigidbody2D m_Rigidbody2D;
@@ -31,7 +31,8 @@ public class CharacterController2D : MonoBehaviour
 
         if (jump)
         {
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            // m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.velocity = Vector2.up * m_JumpForce;
         }
     }
 
