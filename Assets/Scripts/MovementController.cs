@@ -8,11 +8,8 @@ public class MovementController : MonoBehaviour
 {
     //Stores input from the PlayerInput
     private Vector2 movementInput;
-
     private Vector3 direction;
-
-    public Tilemap fogOfWar;
-
+    //public Tilemap fogOfWar;
     bool hasMoved;
     void Update()
     {
@@ -31,6 +28,7 @@ public class MovementController : MonoBehaviour
 
     public void GetMovementDirection()
     {
+        Debug.Log(movementInput);
         if (movementInput.x < 0)
         {
             if (movementInput.y > 0)
@@ -46,7 +44,7 @@ public class MovementController : MonoBehaviour
                 direction = new Vector3(-1, 0, 0);
             }
             transform.position += direction;
-            UpdateFogOfWar();
+            //UpdateFogOfWar();
         }
         else if (movementInput.x > 0)
         {
@@ -64,7 +62,7 @@ public class MovementController : MonoBehaviour
             }
 
             transform.position += direction;
-            UpdateFogOfWar();
+            //UpdateFogOfWar();
         }
     }
 
@@ -73,26 +71,26 @@ public class MovementController : MonoBehaviour
         movementInput = value.Get<Vector2>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        transform.position -= direction;
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    transform.position -= direction;
+    //}
 
-    public int vision = 1;
+    //public int vision = 1;
 
-    void UpdateFogOfWar()
-    {
-        Vector3Int currentPlayerTile = fogOfWar.WorldToCell(transform.position);
+    //void UpdateFogOfWar()
+    //{
+    //    Vector3Int currentPlayerTile = fogOfWar.WorldToCell(transform.position);
 
-        //Clear the surrounding tiles
-        for(int x=-vision; x<= vision; x++)
-        {
-            for(int y=-vision; y<= vision; y++)
-            {
-                fogOfWar.SetTile(currentPlayerTile + new Vector3Int(x, y, 0), null);
-            }
+    //    //Clear the surrounding tiles
+    //    for(int x=-vision; x<= vision; x++)
+    //    {
+    //        for(int y=-vision; y<= vision; y++)
+    //        {
+    //            fogOfWar.SetTile(currentPlayerTile + new Vector3Int(x, y, 0), null);
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
 }
