@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream:Assets/Character/Aniamtions/Character-Animator-Controller.controller.meta
 guid: 29d67f7c014565e4d8d7bc216e313878
-=======
-guid: 13b948df85b559a4c94b1482b48bd59b
->>>>>>> Stashed changes:Assets/Render/UniversalRenderPipelineAsset_Renderer.asset.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 9100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
