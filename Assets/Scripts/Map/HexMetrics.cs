@@ -11,6 +11,7 @@ public static class HexMetrics {
     new Vector3(innerRadius, 0f, -0.5f * outerRadius),
     new Vector3(0f, 0f, -outerRadius),
     new Vector3(-innerRadius, 0f, -0.5f * outerRadius),
-    new Vector3(-innerRadius, 0f, 0.5f * outerRadius)
+    new Vector3(-innerRadius, 0f, 0.5f * outerRadius),
+    new Vector3(0f, 0f, outerRadius) // this is the first corner again made for when we triangulate (ie so the last triangle can be made easily)
   };
 }
