@@ -4,8 +4,7 @@
 /// Controller script for the whole animation 
 /// Handles ground, beam, light, camera shake and particles
 /// </summary>
-public class SequenceController : MonoBehaviour
-{
+public class SequenceController : MonoBehaviour {
   /// <summary>
   /// 0 is the start of the sequence, 1 the end
   /// </summary>
@@ -42,18 +41,15 @@ public class SequenceController : MonoBehaviour
   private static readonly int HeightMax = Shader.PropertyToID("_Sequence");
 
   //Handle the sequence loop
-  private void Update()
-  {
+  private void Update() {
     //Current sequence duration is 5s
     SequenceVal += Time.deltaTime * 0.2f;
-    if (SequenceVal > 1.0f)
-    {
+    if (SequenceVal > 1.0f) {
       SequenceVal = 0.0f;
     }
 
     //The first part of the sequence behaves differently from the second part
-    if (SequenceVal < 0.1f)
-    {
+    if (SequenceVal < 0.1f) {
       //Ground Material
       GroundMat.SetFloat(Sequence, 0.01f - SequenceVal * 0.1f);
 
@@ -69,9 +65,7 @@ public class SequenceController : MonoBehaviour
 
       //Lighting Particles
       LightningParticles.localScale = new Vector3(0.4f, 0.4f, 1.0f);
-    }
-    else
-    {
+    } else {
       //Ground Material
       GroundMat.SetFloat(Sequence, SequenceVal * 1.09f - 0.09f);
 
@@ -85,8 +79,7 @@ public class SequenceController : MonoBehaviour
                              8f;
 
       //Particle System
-      foreach (GameObject go in ParticleSystems)
-      {
+      foreach (GameObject go in ParticleSystems) {
         go.SetActive(true);
       }
 

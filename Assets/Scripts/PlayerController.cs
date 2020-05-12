@@ -6,8 +6,7 @@
 // Make sure to attach a character controller to the same game object.
 // It is recommended that you make only one call to Move or SimpleMove per frame.
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
   CharacterController characterController;
 
   public float speed = 6.0f;
@@ -19,15 +18,12 @@ public class PlayerController : MonoBehaviour
 
   private Vector3 moveDirection = Vector3.zero;
 
-  void Start()
-  {
+  void Start() {
     characterController = GetComponent<CharacterController>();
   }
 
-  void Update()
-  {
-    if (characterController.isGrounded)
-    {
+  void Update() {
+    if (characterController.isGrounded) {
       // We are grounded, so recalculate
       // move direction directly from axes
       x = Input.GetAxis("Horizontal");
@@ -35,8 +31,7 @@ public class PlayerController : MonoBehaviour
 
       moveDirection = transform.right * x + transform.forward * y;
 
-      if (Input.GetButton("Jump"))
-      {
+      if (Input.GetButton("Jump")) {
         moveDirection.y = jumpSpeed;
       }
     }
