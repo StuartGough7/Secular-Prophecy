@@ -234,6 +234,8 @@ MonoBehaviour:
   height: 6
   cellLabelPrefab: {fileID: 5603153132915099475, guid: 420c755785fda824b8be777b3056b196,
     type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  touchedColor: {r: 1, g: 0, b: 1, a: 1}
   cellPrefab: {fileID: 8341898301289204893, guid: 59191e7cdddd7b545833bcf213349200,
     type: 3}
 --- !u!4 &143803613
@@ -329,8 +331,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555420261}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0.45590878, y: -0.0040051118, z: 0.0020516089, w: 0.8900152}
+  m_LocalPosition: {x: 38.7969, y: 96.708565, z: -7.5871162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -430,7 +432,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 686c84b4574312841bf8db63aee9ff58, type: 2}
+  - {fileID: 2100000, guid: 375ce9abc21d07f4ebf6e051e58a3470, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
