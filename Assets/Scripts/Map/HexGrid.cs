@@ -46,6 +46,24 @@ public class HexGrid : MonoBehaviour {
     cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
     cell.color = defaultColor;
 
+    // Adding East -> West neighbours if the cell is not the first in the column (ie nothing west of it)
+    if (x > 0) {
+      cell.SetNeighbor(HexDirection.W, cells[i - 1]);
+    }
+    // Adding SE neighbours, skip first row entirely and handle even and odd rows differently due to zig zag
+    if (z > 0) {
+      if ((z & 1) == 0) { // the & operator is the bitwise & and is used to check even and odd quickly (ie even always have a 0 at the least significant digit in binary)
+        cell.SetNeighbor(HexDirection.SE, cells[i - width]);
+        if (x > 0) {
+          cell.SetNeighbor(HexDirection.SW, cells[i - width - 1]); // Sw neighbour on thej same row but not the first column
+        }
+      } else { // odd rows mirror the even logic above
+        cell.SetNeighbor(HexDirection.SW, cells[i - width]);
+        if (x < width - 1) {
+          cell.SetNeighbor(HexDirection.SE, cells[i - width + 1]);
+        }
+      }
+    }
     // labelling
     Text label = Instantiate<Text>(cellLabelPrefab);
     label.rectTransform.SetParent(gridCanvas.transform, false);
