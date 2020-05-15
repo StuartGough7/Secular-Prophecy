@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class HexMesh : MonoBehaviour {
 
   Mesh hexMesh;
-  MeshCollider meshCollider;
-  List<Color> colors;
-
   List<Vector3> vertices;
+  List<Color> colors;
   List<int> triangles;
+
+  MeshCollider meshCollider;
 
   void Awake() {
     GetComponent<MeshFilter>().mesh = hexMesh = new Mesh();
@@ -18,22 +18,21 @@ public class HexMesh : MonoBehaviour {
     vertices = new List<Vector3>();
     colors = new List<Color>();
     triangles = new List<int>();
-
   }
 
   public void Triangulate(HexCell[] cells) {
     hexMesh.Clear();
     vertices.Clear();
-    triangles.Clear();
     colors.Clear();
+    triangles.Clear();
 
     for (int i = 0; i < cells.Length; i++) {
       Triangulate(cells[i]);
     }
     hexMesh.vertices = vertices.ToArray();
-    hexMesh.triangles = triangles.ToArray();
-    hexMesh.RecalculateNormals();
     hexMesh.colors = colors.ToArray();
+    hexMesh.triangles = triangles.ToArray();
+    hexMesh.RecalculateNormals(); // extremely important to recalculate the normals after color addition otherwise Z-fighting can occur
     meshCollider.sharedMesh = hexMesh;
   }
 
@@ -72,8 +71,8 @@ public class HexMesh : MonoBehaviour {
     AddQuadColor(cell.color, neighbor.color);
 
     HexCell nextNeighbor = cell.GetNeighbor(direction.Next());
-    if (direction <= HexDirection.E && nextNeighbor != null) { // dont draw multiple triangles on top of eachother. 3 cells intersec at a triangle onlty do it once
-      AddTriangle(v2, v4, HexMetrics.GetBridge(direction.Next()));
+    if (direction <= HexDirection.E && nextNeighbor != null) {
+      AddTriangle(v2, v4, v2 + HexMetrics.GetBridge(direction.Next()));
       AddTriangleColor(cell.color, neighbor.color, nextNeighbor.color);
     }
   }
@@ -122,6 +121,7 @@ public class HexMesh : MonoBehaviour {
     colors.Add(c2);
     colors.Add(c2);
   }
+
   void AddQuadColor(Color c1, Color c2, Color c3, Color c4) {
     colors.Add(c1);
     colors.Add(c2);
