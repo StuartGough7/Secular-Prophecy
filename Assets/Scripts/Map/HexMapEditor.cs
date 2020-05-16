@@ -24,10 +24,14 @@ public class HexMapEditor : MonoBehaviour {
     Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
     if (Physics.Raycast(inputRay, out hit)) {
-      hexGrid.ColorCell(hit.point, activeColor);
+      EditCell(hexGrid.GetCell(hit.point));
     }
   }
 
+  void EditCell(HexCell cell) {
+    cell.color = activeColor;
+    hexGrid.Refresh();
+  }
   public void SelectColor(int index) {
     activeColor = colors[index];
   }
