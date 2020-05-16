@@ -8,6 +8,8 @@ public class HexGrid : MonoBehaviour {
   public Text cellLabelPrefab;
   public Color defaultColor = Color.white;
   public Color touchedColor = Color.magenta;
+  public Texture2D noiseSource;
+
 
   Canvas gridCanvas;
   HexMesh hexMesh;
@@ -16,7 +18,12 @@ public class HexGrid : MonoBehaviour {
 
   HexCell[] cells;
 
+  void OnEnable() {
+    HexMetrics.noiseSource = noiseSource; // so the noiseTexture survives recompiles
+  }
+
   void Awake() {
+    HexMetrics.noiseSource = noiseSource; // because noiseSource isnt a component we just pass this here as an intermediate
     gridCanvas = GetComponentInChildren<Canvas>();
     hexMesh = GetComponentInChildren<HexMesh>();
 
@@ -71,6 +78,8 @@ public class HexGrid : MonoBehaviour {
       new Vector2(position.x, position.z);
     label.text = cell.coordinates.ToStringOnSeparateLines();
     cell.uiRect = label.rectTransform;
+
+    cell.Elevation = 0;
   }
 
   public HexCell GetCell(Vector3 position) {
