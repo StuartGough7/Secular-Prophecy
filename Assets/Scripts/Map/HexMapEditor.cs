@@ -7,17 +7,27 @@ public class HexMapEditor : MonoBehaviour {
 
   public HexGrid hexGrid;
 
-  private Color activeColor;
-
   int activeElevation;
+
+  Color activeColor;
+
+  public void SelectColor(int index) {
+    activeColor = colors[index];
+  }
+
+  public void SetElevation(float elevation) {
+    activeElevation = (int)elevation;
+  }
 
   void Awake() {
     SelectColor(0);
   }
 
   void Update() {
-    // the second part is to ignore the clicking of game objects if on the Overlaid UI
-    if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject()) {
+    if (
+      Input.GetMouseButton(0) &&
+      !EventSystem.current.IsPointerOverGameObject()
+    ) {
       HandleInput();
     }
   }
@@ -31,16 +41,7 @@ public class HexMapEditor : MonoBehaviour {
   }
 
   void EditCell(HexCell cell) {
-    cell.color = activeColor;
+    cell.Color = activeColor;
     cell.Elevation = activeElevation;
-    hexGrid.Refresh();
-  }
-
-  public void SelectColor(int index) {
-    activeColor = colors[index];
-  }
-
-  public void SetElevation(float elevation) {
-    activeElevation = (int)elevation;
   }
 }
