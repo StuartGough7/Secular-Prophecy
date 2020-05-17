@@ -78,4 +78,8 @@ public class HexMapEditor : MonoBehaviour {
   public void SetApplyElevation(bool toggle) {
     applyElevation = toggle;
   }
+
+  public void ShowUI(bool visible) {
+    hexGrid.ShowUI(visible);
+  }
 }
