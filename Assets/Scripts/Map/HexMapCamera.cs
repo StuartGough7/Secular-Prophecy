@@ -2,14 +2,19 @@
 
 public class HexMapCamera : MonoBehaviour {
 
-  Transform swivel, stick;
-  float zoom = 1f;
   public float stickMinZoom, stickMaxZoom;
+
   public float swivelMinZoom, swivelMaxZoom;
+
   public float moveSpeedMinZoom, moveSpeedMaxZoom;
+
   public float rotationSpeed;
 
+  Transform swivel, stick;
+
   public HexGrid grid;
+
+  float zoom = 1f;
 
   float rotationAngle;
 
@@ -20,20 +25,19 @@ public class HexMapCamera : MonoBehaviour {
 
   void Update() {
     float zoomDelta = Input.GetAxis("Mouse ScrollWheel");
-    float xDelta = Input.GetAxis("Horizontal");
-    float zDelta = Input.GetAxis("Vertical");
-    float rotationDelta = Input.GetAxis("Rotation");
-
     if (zoomDelta != 0f) {
       AdjustZoom(zoomDelta);
     }
 
-    if (xDelta != 0f || zDelta != 0f) {
-      AdjustPosition(xDelta, zDelta);
-    }
-
+    float rotationDelta = Input.GetAxis("Rotation");
     if (rotationDelta != 0f) {
       AdjustRotation(rotationDelta);
+    }
+
+    float xDelta = Input.GetAxis("Horizontal");
+    float zDelta = Input.GetAxis("Vertical");
+    if (xDelta != 0f || zDelta != 0f) {
+      AdjustPosition(xDelta, zDelta);
     }
   }
 
@@ -45,6 +49,16 @@ public class HexMapCamera : MonoBehaviour {
 
     float angle = Mathf.Lerp(swivelMinZoom, swivelMaxZoom, zoom);
     swivel.localRotation = Quaternion.Euler(angle, 0f, 0f);
+  }
+
+  void AdjustRotation(float delta) {
+    rotationAngle += delta * rotationSpeed * Time.deltaTime;
+    if (rotationAngle < 0f) {
+      rotationAngle += 360f;
+    } else if (rotationAngle >= 360f) {
+      rotationAngle -= 360f;
+    }
+    transform.localRotation = Quaternion.Euler(0f, rotationAngle, 0f);
   }
 
   void AdjustPosition(float xDelta, float zDelta) {
@@ -73,15 +87,5 @@ public class HexMapCamera : MonoBehaviour {
     position.z = Mathf.Clamp(position.z, 0f, zMax);
 
     return position;
-  }
-
-  void AdjustRotation(float delta) {
-    rotationAngle += delta * rotationSpeed * Time.deltaTime;
-    if (rotationAngle < 0f) {
-      rotationAngle += 360f;
-    } else if (rotationAngle >= 360f) {
-      rotationAngle -= 360f;
-    }
-    transform.localRotation = Quaternion.Euler(0f, rotationAngle, 0f);
   }
 }
