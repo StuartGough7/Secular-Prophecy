@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 7682791494980892206}
   - component: {fileID: 5673814417066794754}
   m_Layer: 0
-  m_Name: Estury
+  m_Name: WaterEstury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
