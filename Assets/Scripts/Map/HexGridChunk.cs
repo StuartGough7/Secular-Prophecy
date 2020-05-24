@@ -534,6 +534,8 @@ public class HexGridChunk : MonoBehaviour {
       );
     }
 
+    features.AddWall(e1, cell, e2, neighbor);
+
     HexCell nextNeighbor = cell.GetNeighbor(direction.Next());
     if (direction <= HexDirection.E && nextNeighbor != null) {
       Vector3 v5 = e1.v5 + HexMetrics.GetBridge(direction.Next());
@@ -626,6 +628,7 @@ public class HexGridChunk : MonoBehaviour {
         bottomCell.Color, leftCell.Color, rightCell.Color
       );
     }
+    features.AddWall(bottom, bottomCell, left, leftCell, right, rightCell);
   }
 
   void TriangulateEdgeTerraces(
@@ -853,5 +856,11 @@ public class HexGridChunk : MonoBehaviour {
     roads.AddQuad(v2, v3, v5, v6);
     roads.AddQuadUV(0f, 1f, 0f, 0f);
     roads.AddQuadUV(1f, 0f, 0f, 0f);
+  }
+
+  public void AddWall(
+    EdgeVertices near, HexCell nearCell,
+    EdgeVertices far, HexCell farCell
+  ) {
   }
 }

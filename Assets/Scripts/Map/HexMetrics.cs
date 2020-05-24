@@ -45,6 +45,10 @@ public static class HexMetrics {
 
   static HexHash[] hashGrid;
 
+  public const float wallHeight = 3f;
+
+  public const float wallThickness = 0.75f;
+
   static Vector3[] corners = {
     new Vector3(0f, 0f, outerRadius),
     new Vector3(innerRadius, 0f, 0.5f * outerRadius),
@@ -166,5 +170,13 @@ public static class HexMetrics {
     position.x += (sample.x * 2f - 1f) * cellPerturbStrength;
     position.z += (sample.z * 2f - 1f) * cellPerturbStrength;
     return position;
+  }
+
+  public static Vector3 WallThicknessOffset(Vector3 near, Vector3 far) {
+    Vector3 offset;
+    offset.x = far.x - near.x;
+    offset.y = 0f;
+    offset.z = far.z - near.z;
+    return offset.normalized * (wallThickness * 0.5f);
   }
 }
