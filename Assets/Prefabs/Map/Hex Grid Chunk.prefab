@@ -600,6 +600,10 @@ MonoBehaviour:
   wallTower: {fileID: 685387593920273208, guid: f80ca19e489ed1b4b8b8c408feda667e,
     type: 3}
   bridge: {fileID: 2152502872711654034, guid: 0d150179896311c4fa7d836eb1f20a77, type: 3}
+  special:
+  - {fileID: 2866452502802098528, guid: bf5af85a784e1b24ebd33da8eb131c4c, type: 3}
+  - {fileID: 8558359136656535327, guid: 1c2bf4621d581984b925ca6373c47a60, type: 3}
+  - {fileID: 2936191735515565077, guid: 801a9948dcb71d04cad8c7cccb7caed0, type: 3}
 --- !u!1 &7759088137463192983
 GameObject:
   m_ObjectHideFlags: 0

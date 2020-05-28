@@ -10,7 +10,7 @@ public class HexMapEditor : MonoBehaviour {
   int activeElevation;
   int activeWaterLevel;
 
-  int activeUrbanLevel, activeFarmLevel, activePlantLevel;
+  int activeUrbanLevel, activeFarmLevel, activePlantLevel, activeSpecialIndex;
 
   Color activeColor;
 
@@ -20,7 +20,7 @@ public class HexMapEditor : MonoBehaviour {
   bool applyElevation = true;
   bool applyWaterLevel = true;
 
-  bool applyUrbanLevel, applyFarmLevel, applyPlantLevel;
+  bool applyUrbanLevel, applyFarmLevel, applyPlantLevel, applySpecialIndex;
 
   enum OptionalToggle {
     Ignore, Yes, No
@@ -93,6 +93,14 @@ public class HexMapEditor : MonoBehaviour {
 
   public void SetWalledMode(int mode) {
     walledMode = (OptionalToggle)mode;
+  }
+
+  public void SetApplySpecialIndex(bool toggle) {
+    applySpecialIndex = toggle;
+  }
+
+  public void SetSpecialIndex(float index) {
+    activeSpecialIndex = (int)index;
   }
 
   public void ShowUI(bool visible) {
@@ -189,6 +197,9 @@ public class HexMapEditor : MonoBehaviour {
       }
       if (walledMode != OptionalToggle.Ignore) {
         cell.Walled = walledMode == OptionalToggle.Yes;
+      }
+      if (applySpecialIndex) {
+        cell.SpecialIndex = activeSpecialIndex;
       }
       if (isDrag) {
         HexCell otherCell = cell.GetNeighbor(dragDirection.Opposite());
