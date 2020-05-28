@@ -6,7 +6,7 @@ public class HexFeatureManager : MonoBehaviour {
 
   public HexMesh walls;
 
-  public Transform wallTower;
+  public Transform wallTower, bridge;
 
   Transform container;
 
@@ -114,6 +114,19 @@ public class HexFeatureManager : MonoBehaviour {
     } else if (cell3.Walled) {
       AddWallSegment(c3, cell3, c1, cell1, c2, cell2);
     }
+  }
+
+  public void AddBridge(Vector3 roadCenter1, Vector3 roadCenter2) {
+    roadCenter1 = HexMetrics.Perturb(roadCenter1);
+    roadCenter2 = HexMetrics.Perturb(roadCenter2);
+    Transform instance = Instantiate(bridge);
+    instance.forward = roadCenter2 - roadCenter1;
+    instance.localPosition = (roadCenter1 + roadCenter2) * 0.5f;
+    float length = Vector3.Distance(roadCenter1, roadCenter2);
+    instance.localScale = new Vector3(
+      1f, 1f, length * (1f / HexMetrics.bridgeDesignLength)
+    );
+    instance.SetParent(container, false);
   }
 
   void AddWallSegment(
