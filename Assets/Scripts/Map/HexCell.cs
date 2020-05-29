@@ -8,7 +8,7 @@ public class HexCell : MonoBehaviour {
 
   public HexGridChunk chunk;
 
-  Color color;
+  int terrainTypeIndex;
 
   int elevation = int.MinValue;
   int waterLevel;
@@ -40,14 +40,22 @@ public class HexCell : MonoBehaviour {
 
   public Color Color {
     get {
-      return color;
+      return HexMetrics.colors[terrainTypeIndex];
+    }
+    //		set {
+    //			…
+    //		}
+  }
+
+  public int TerrainTypeIndex {
+    get {
+      return terrainTypeIndex;
     }
     set {
-      if (color == value) {
-        return;
+      if (terrainTypeIndex != value) {
+        terrainTypeIndex = value;
+        Refresh();
       }
-      color = value;
-      Refresh();
     }
   }
 

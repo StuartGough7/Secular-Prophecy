@@ -734,7 +734,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkCountX: 4
   chunkCountZ: 3
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   cellPrefab: {fileID: 8341898301289204893, guid: 59191e7cdddd7b545833bcf213349200,
     type: 3}
   cellLabelPrefab: {fileID: 5603153132915099475, guid: 420c755785fda824b8be777b3056b196,
@@ -743,6 +742,12 @@ MonoBehaviour:
     type: 3}
   noiseSource: {fileID: 2800000, guid: 6bab86340d523db458d9c59e6be04776, type: 3}
   seed: 1234
+  colors:
+  - {r: 0.9811321, g: 0.9291172, b: 0.18974723, a: 0}
+  - {r: 0.55392116, g: 0.8301887, b: 0.246707, a: 0}
+  - {r: 0.11894804, g: 0.34740654, b: 0.764151, a: 0}
+  - {r: 1, g: 0.45740873, b: 0, a: 0}
+  - {r: 0.9811321, g: 0.9487362, b: 0.9487362, a: 0}
 --- !u!4 &143803613
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,7 +1246,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2963,7 +2968,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4448,7 +4453,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5030,12 +5035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c96effb6f7cc049b272b4e4f6617f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-  - {r: 1, g: 0.89706457, b: 0, a: 0}
-  - {r: 0.0137662925, g: 0.6415094, b: 0, a: 0}
-  - {r: 0, g: 0.37028956, b: 1, a: 0}
-  - {r: 1, g: 0.36501044, b: 0, a: 0}
-  - {r: 1, g: 1, b: 1, a: 0}
   hexGrid: {fileID: 143803612}
 --- !u!114 &939927828
 MonoBehaviour:
@@ -9941,7 +9940,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10652,7 +10651,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11399,7 +11398,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939927827}
-        m_MethodName: SelectColor
+        m_MethodName: SetTerrainTypeIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3,8 +3,6 @@ using UnityEngine.EventSystems;
 
 public class HexMapEditor : MonoBehaviour {
 
-  public Color[] colors;
-
   public HexGrid hexGrid;
 
   int activeElevation;
@@ -12,11 +10,10 @@ public class HexMapEditor : MonoBehaviour {
 
   int activeUrbanLevel, activeFarmLevel, activePlantLevel, activeSpecialIndex;
 
-  Color activeColor;
+  int activeTerrainTypeIndex;
 
   int brushSize;
 
-  bool applyColor;
   bool applyElevation = true;
   bool applyWaterLevel = true;
 
@@ -32,19 +29,16 @@ public class HexMapEditor : MonoBehaviour {
   HexDirection dragDirection;
   HexCell previousCell;
 
-  public void SelectColor(int index) {
-    applyColor = index >= 0;
-    if (applyColor) {
-      activeColor = colors[index];
-    }
-  }
-
   public void SetApplyElevation(bool toggle) {
     applyElevation = toggle;
   }
 
   public void SetElevation(float elevation) {
     activeElevation = (int)elevation;
+  }
+
+  public void SetTerrainTypeIndex(int index) {
+    activeTerrainTypeIndex = index;
   }
 
   public void SetApplyWaterLevel(bool toggle) {
@@ -107,10 +101,6 @@ public class HexMapEditor : MonoBehaviour {
     hexGrid.ShowUI(visible);
   }
 
-  void Awake() {
-    SelectColor(0);
-  }
-
   void Update() {
     if (
       Input.GetMouseButton(0) &&
@@ -171,8 +161,8 @@ public class HexMapEditor : MonoBehaviour {
 
   void EditCell(HexCell cell) {
     if (cell) {
-      if (applyColor) {
-        cell.Color = activeColor;
+      if (activeTerrainTypeIndex >= 0) {
+        cell.TerrainTypeIndex = activeTerrainTypeIndex;
       }
       if (applyElevation) {
         cell.Elevation = activeElevation;
