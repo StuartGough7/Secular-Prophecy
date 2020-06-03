@@ -103,31 +103,6 @@ public class HexMapEditor : MonoBehaviour {
     hexGrid.ShowUI(visible);
   }
 
-  public void Save() {
-    Debug.Log(Application.persistentDataPath);
-    string path = Path.Combine(Application.persistentDataPath, "test.map");
-    using (
-      BinaryWriter writer =
-        new BinaryWriter(File.Open(path, FileMode.Create))
-    ) {
-      writer.Write(1); // version of our map save, compatiabilty between versions
-      hexGrid.Save(writer);
-    }
-  }
-
-  public void Load() {
-    string path = Path.Combine(Application.persistentDataPath, "test.map");
-    using (BinaryReader reader = new BinaryReader(File.OpenRead(path))) {
-      int header = reader.ReadInt32();
-      if (header <= 1) {
-        hexGrid.Load(reader, header);
-        HexMapCamera.ValidatePosition();
-      } else {
-        Debug.LogWarning("Unknown map format " + header);
-      }
-    }
-  }
-
   void Update() {
     if (
       Input.GetMouseButton(0) &&
