@@ -39,15 +39,6 @@ public class HexCell : MonoBehaviour {
     }
   }
 
-  public Color Color {
-    get {
-      return HexMetrics.colors[terrainTypeIndex];
-    }
-    //		set {
-    //			…
-    //		}
-  }
-
   public int TerrainTypeIndex {
     get {
       return terrainTypeIndex;
