@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 840626c00ae30d44ebe2962783ede964, type: 2}
+  - {fileID: 2100000, guid: ad99dd9e4dab5dd42ace586028a1f75d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   useCollider: 0
   useColors: 0
   useUVCoordinates: 0
-  useUV2Coordinates: 0
+  useUV2Coordinates: 1
   useTerrainTypes: 0
 --- !u!1 &2198860752237991954
 GameObject:
