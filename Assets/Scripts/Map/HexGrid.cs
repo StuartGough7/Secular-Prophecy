@@ -182,17 +182,26 @@ public class HexGrid : MonoBehaviour {
         if (neighbor.IsUnderwater) {
           continue;
         }
-        if (current.GetEdgeType(neighbor) == HexEdgeType.Cliff) {
+
+        HexEdgeType edgeType = current.GetEdgeType(neighbor);
+        if (edgeType == HexEdgeType.Cliff) {
           continue;
         }
         int distance = current.Distance;
         if (current.HasRoadThroughEdge(d)) {
           distance += 1;
+        } else if (current.Walled != neighbor.Walled) {
+          continue;
         } else {
-          distance += 10;
+          distance += edgeType == HexEdgeType.Flat ? 5 : 10;
+          distance += neighbor.UrbanLevel + neighbor.FarmLevel + neighbor.PlantLevel;
         }
-        neighbor.Distance = distance;
-        frontier.Add(neighbor);
+        if (neighbor.Distance == int.MaxValue) {
+          neighbor.Distance = distance;
+          frontier.Add(neighbor);
+        } else if (distance < neighbor.Distance) {
+          neighbor.Distance = distance;
+        }
         frontier.Sort((x, y) => x.Distance.CompareTo(y.Distance));
       }
     }
