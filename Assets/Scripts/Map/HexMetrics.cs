@@ -35,16 +35,6 @@ public static class HexMetrics {
 
   public const float waterElevationOffset = -0.5f;
 
-  public const float noiseScale = 0.003f;
-
-  public const int chunkSizeX = 5, chunkSizeZ = 5;
-
-  public const int hashGridSize = 256;
-
-  public const float hashGridScale = 0.25f;
-
-  static HexHash[] hashGrid;
-
   public const float wallHeight = 4f;
 
   public const float wallYOffset = -1f;
@@ -56,6 +46,16 @@ public static class HexMetrics {
   public const float wallTowerThreshold = 0.5f;
 
   public const float bridgeDesignLength = 7f;
+
+  public const float noiseScale = 0.003f;
+
+  public const int chunkSizeX = 5, chunkSizeZ = 5;
+
+  public const int hashGridSize = 256;
+
+  public const float hashGridScale = 0.25f;
+
+  static HexHash[] hashGrid;
 
   static Vector3[] corners = {
     new Vector3(0f, 0f, outerRadius),
@@ -162,6 +162,23 @@ public static class HexMetrics {
     return Color.Lerp(a, b, h);
   }
 
+  public static Vector3 WallLerp(Vector3 near, Vector3 far) {
+    near.x += (far.x - near.x) * 0.5f;
+    near.z += (far.z - near.z) * 0.5f;
+    float v =
+      near.y < far.y ? wallElevationOffset : (1f - wallElevationOffset);
+    near.y += (far.y - near.y) * v + wallYOffset;
+    return near;
+  }
+
+  public static Vector3 WallThicknessOffset(Vector3 near, Vector3 far) {
+    Vector3 offset;
+    offset.x = far.x - near.x;
+    offset.y = 0f;
+    offset.z = far.z - near.z;
+    return offset.normalized * (wallThickness * 0.5f);
+  }
+
   public static HexEdgeType GetEdgeType(int elevation1, int elevation2) {
     if (elevation1 == elevation2) {
       return HexEdgeType.Flat;
@@ -178,22 +195,5 @@ public static class HexMetrics {
     position.x += (sample.x * 2f - 1f) * cellPerturbStrength;
     position.z += (sample.z * 2f - 1f) * cellPerturbStrength;
     return position;
-  }
-
-  public static Vector3 WallThicknessOffset(Vector3 near, Vector3 far) {
-    Vector3 offset;
-    offset.x = far.x - near.x;
-    offset.y = 0f;
-    offset.z = far.z - near.z;
-    return offset.normalized * (wallThickness * 0.5f);
-  }
-
-  public static Vector3 WallLerp(Vector3 near, Vector3 far) {
-    near.x += (far.x - near.x) * 0.5f;
-    near.z += (far.z - near.z) * 0.5f;
-    float v =
-      near.y < far.y ? wallElevationOffset : (1f - wallElevationOffset);
-    near.y += (far.y - near.y) * v + wallYOffset;
-    return near;
   }
 }

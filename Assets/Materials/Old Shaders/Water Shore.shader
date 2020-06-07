@@ -6,7 +6,7 @@
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 	}
 	SubShader {
-		Tags { "RenderType"="Transparent" "Queue"="Transparent"  "RenderPipeline" = "UniversalPipeline" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
 		LOD 200
 		
 		CGPROGRAM

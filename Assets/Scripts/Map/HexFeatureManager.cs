@@ -8,9 +8,9 @@ public class HexFeatureManager : MonoBehaviour {
 
   public Transform wallTower, bridge;
 
-  Transform container;
-
   public Transform[] special;
+
+  Transform container;
 
   public void Clear() {
     if (container) {
@@ -40,10 +40,24 @@ public class HexFeatureManager : MonoBehaviour {
     return null;
   }
 
+  public void AddBridge(Vector3 roadCenter1, Vector3 roadCenter2) {
+    roadCenter1 = HexMetrics.Perturb(roadCenter1);
+    roadCenter2 = HexMetrics.Perturb(roadCenter2);
+    Transform instance = Instantiate(bridge);
+    instance.localPosition = (roadCenter1 + roadCenter2) * 0.5f;
+    instance.forward = roadCenter2 - roadCenter1;
+    float length = Vector3.Distance(roadCenter1, roadCenter2);
+    instance.localScale = new Vector3(
+      1f, 1f, length * (1f / HexMetrics.bridgeDesignLength)
+    );
+    instance.SetParent(container, false);
+  }
+
   public void AddFeature(HexCell cell, Vector3 position) {
     if (cell.IsSpecial) {
       return;
     }
+
     HexHash hash = HexMetrics.SampleHashGrid(position);
     Transform prefab = PickPrefab(
       urbanCollections, cell.UrbanLevel, hash.a, hash.d
@@ -81,8 +95,24 @@ public class HexFeatureManager : MonoBehaviour {
     instance.SetParent(container, false);
   }
 
-  public void AddWall(EdgeVertices near, HexCell nearCell, EdgeVertices far, HexCell farCell, bool hasRiver, bool hasRoad) {
-    if (nearCell.Walled != farCell.Walled && !nearCell.IsUnderwater && !farCell.IsUnderwater && nearCell.GetEdgeType(farCell) != HexEdgeType.Cliff) {
+  public void AddSpecialFeature(HexCell cell, Vector3 position) {
+    HexHash hash = HexMetrics.SampleHashGrid(position);
+    Transform instance = Instantiate(special[cell.SpecialIndex - 1]);
+    instance.localPosition = HexMetrics.Perturb(position);
+    instance.localRotation = Quaternion.Euler(0f, 360f * hash.e, 0f);
+    instance.SetParent(container, false);
+  }
+
+  public void AddWall(
+    EdgeVertices near, HexCell nearCell,
+    EdgeVertices far, HexCell farCell,
+    bool hasRiver, bool hasRoad
+  ) {
+    if (
+      nearCell.Walled != farCell.Walled &&
+      !nearCell.IsUnderwater && !farCell.IsUnderwater &&
+      nearCell.GetEdgeType(farCell) != HexEdgeType.Cliff
+    ) {
       AddWallSegment(near.v1, far.v1, near.v2, far.v2);
       if (hasRiver || hasRoad) {
         AddWallCap(near.v2, far.v2);
@@ -121,19 +151,6 @@ public class HexFeatureManager : MonoBehaviour {
     }
   }
 
-  public void AddBridge(Vector3 roadCenter1, Vector3 roadCenter2) {
-    roadCenter1 = HexMetrics.Perturb(roadCenter1);
-    roadCenter2 = HexMetrics.Perturb(roadCenter2);
-    Transform instance = Instantiate(bridge);
-    instance.forward = roadCenter2 - roadCenter1;
-    instance.localPosition = (roadCenter1 + roadCenter2) * 0.5f;
-    float length = Vector3.Distance(roadCenter1, roadCenter2);
-    instance.localScale = new Vector3(
-      1f, 1f, length * (1f / HexMetrics.bridgeDesignLength)
-    );
-    instance.SetParent(container, false);
-  }
-
   void AddWallSegment(
     Vector3 nearLeft, Vector3 farLeft, Vector3 nearRight, Vector3 farRight,
     bool addTower = false
@@ -142,10 +159,14 @@ public class HexFeatureManager : MonoBehaviour {
     farLeft = HexMetrics.Perturb(farLeft);
     nearRight = HexMetrics.Perturb(nearRight);
     farRight = HexMetrics.Perturb(farRight);
+
     Vector3 left = HexMetrics.WallLerp(nearLeft, farLeft);
     Vector3 right = HexMetrics.WallLerp(nearRight, farRight);
-    Vector3 leftThicknessOffset = HexMetrics.WallThicknessOffset(nearLeft, farLeft);
-    Vector3 rightThicknessOffset = HexMetrics.WallThicknessOffset(nearRight, farRight);
+
+    Vector3 leftThicknessOffset =
+      HexMetrics.WallThicknessOffset(nearLeft, farLeft);
+    Vector3 rightThicknessOffset =
+      HexMetrics.WallThicknessOffset(nearRight, farRight);
 
     float leftTop = left.y + HexMetrics.wallHeight;
     float rightTop = right.y + HexMetrics.wallHeight;
@@ -164,7 +185,9 @@ public class HexFeatureManager : MonoBehaviour {
     v3.y = leftTop;
     v4.y = rightTop;
     walls.AddQuadUnperturbed(v2, v1, v4, v3);
+
     walls.AddQuadUnperturbed(t1, t2, v3, v4);
+
     if (addTower) {
       Transform towerInstance = Instantiate(wallTower);
       towerInstance.transform.localPosition = (left + right) * 0.5f;
@@ -183,8 +206,11 @@ public class HexFeatureManager : MonoBehaviour {
     if (pivotCell.IsUnderwater) {
       return;
     }
-    bool hasLeftWall = !leftCell.IsUnderwater && pivotCell.GetEdgeType(leftCell) != HexEdgeType.Cliff;
-    bool hasRighWall = !rightCell.IsUnderwater && pivotCell.GetEdgeType(rightCell) != HexEdgeType.Cliff;
+
+    bool hasLeftWall = !leftCell.IsUnderwater &&
+      pivotCell.GetEdgeType(leftCell) != HexEdgeType.Cliff;
+    bool hasRighWall = !rightCell.IsUnderwater &&
+      pivotCell.GetEdgeType(rightCell) != HexEdgeType.Cliff;
 
     if (hasLeftWall) {
       if (hasRighWall) {
@@ -244,13 +270,5 @@ public class HexFeatureManager : MonoBehaviour {
     walls.AddQuadUnperturbed(v1, point, v3, pointTop);
     walls.AddQuadUnperturbed(point, v2, pointTop, v4);
     walls.AddTriangleUnperturbed(pointTop, v3, v4);
-  }
-
-  public void AddSpecialFeature(HexCell cell, Vector3 position) {
-    Transform instance = Instantiate(special[cell.SpecialIndex - 1]);
-    instance.localPosition = HexMetrics.Perturb(position);
-    HexHash hash = HexMetrics.SampleHashGrid(position);
-    instance.localRotation = Quaternion.Euler(0f, 360f * hash.e, 0f);
-    instance.SetParent(container, false);
   }
 }

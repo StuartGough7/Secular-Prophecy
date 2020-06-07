@@ -9,48 +9,6 @@ public class HexCell : MonoBehaviour {
 
   public HexGridChunk chunk;
 
-  int terrainTypeIndex;
-
-  int elevation = int.MinValue;
-  int waterLevel;
-
-  int urbanLevel, farmLevel, plantLevel;
-  int specialIndex;
-
-  bool hasIncomingRiver, hasOutgoingRiver;
-  bool walled;
-  HexDirection incomingRiver, outgoingRiver;
-
-  [SerializeField]
-  HexCell[] neighbors;
-
-  [SerializeField]
-  bool[] roads;
-
-  public bool Walled {
-    get {
-      return walled;
-    }
-    set {
-      if (walled != value) {
-        walled = value;
-        Refresh();
-      }
-    }
-  }
-
-  public int TerrainTypeIndex {
-    get {
-      return terrainTypeIndex;
-    }
-    set {
-      if (terrainTypeIndex != value) {
-        terrainTypeIndex = value;
-        Refresh();
-      }
-    }
-  }
-
   public int Elevation {
     get {
       return elevation;
@@ -62,6 +20,7 @@ public class HexCell : MonoBehaviour {
       elevation = value;
       RefreshPosition();
       ValidateRivers();
+
       for (int i = 0; i < roads.Length; i++) {
         if (roads[i] && GetElevationDifference((HexDirection)i) > 1) {
           SetRoad(i, false);
@@ -151,6 +110,7 @@ public class HexCell : MonoBehaviour {
     }
   }
 
+
   public float StreamBedY {
     get {
       return
@@ -229,6 +189,51 @@ public class HexCell : MonoBehaviour {
       return specialIndex > 0;
     }
   }
+
+  public bool Walled {
+    get {
+      return walled;
+    }
+    set {
+      if (walled != value) {
+        walled = value;
+        Refresh();
+      }
+    }
+  }
+
+  public int TerrainTypeIndex {
+    get {
+      return terrainTypeIndex;
+    }
+    set {
+      if (terrainTypeIndex != value) {
+        terrainTypeIndex = value;
+        Refresh();
+      }
+    }
+  }
+
+  int terrainTypeIndex;
+
+  int elevation = int.MinValue;
+  int waterLevel;
+
+  int urbanLevel, farmLevel, plantLevel;
+
+  int specialIndex;
+
+  bool walled;
+
+  bool hasIncomingRiver, hasOutgoingRiver;
+  HexDirection incomingRiver, outgoingRiver;
+
+  [SerializeField]
+  HexCell[] neighbors;
+
+  [SerializeField]
+  bool[] roads;
+
   public HexCell GetNeighbor(HexDirection direction) {
     return neighbors[(int)direction];
   }
@@ -366,6 +371,19 @@ public class HexCell : MonoBehaviour {
     RefreshSelfOnly();
   }
 
+  void RefreshPosition() {
+    Vector3 position = transform.localPosition;
+    position.y = elevation * HexMetrics.elevationStep;
+    position.y +=
+      (HexMetrics.SampleNoise(position).y * 2f - 1f) *
+      HexMetrics.elevationPerturbStrength;
+    transform.localPosition = position;
+
+    Vector3 uiPosition = uiRect.localPosition;
+    uiPosition.z = -position.y;
+    uiRect.localPosition = uiPosition;
+  }
+
   void Refresh() {
     if (chunk) {
       chunk.Refresh();
@@ -380,19 +398,6 @@ public class HexCell : MonoBehaviour {
 
   void RefreshSelfOnly() {
     chunk.Refresh();
-  }
-
-  void RefreshPosition() {
-    Vector3 position = transform.localPosition;
-    position.y = elevation * HexMetrics.elevationStep;
-    position.y +=
-      (HexMetrics.SampleNoise(position).y * 2f - 1f) *
-      HexMetrics.elevationPerturbStrength;
-    transform.localPosition = position;
-
-    Vector3 uiPosition = uiRect.localPosition;
-    uiPosition.z = -position.y;
-    uiRect.localPosition = uiPosition;
   }
 
   public void Save(BinaryWriter writer) {
@@ -444,6 +449,7 @@ public class HexCell : MonoBehaviour {
     } else {
       hasIncomingRiver = false;
     }
+
     riverData = reader.ReadByte();
     if (riverData >= 128) {
       hasOutgoingRiver = true;

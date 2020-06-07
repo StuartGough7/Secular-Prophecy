@@ -9,7 +9,6 @@
 		Tags {
 			"RenderType"="Opaque"
 			"Queue" = "Geometry+1"
-       "RenderPipeline" = "UniversalPipeline"
 		}
 		LOD 200
 		Offset -1, -1

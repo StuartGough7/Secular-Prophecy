@@ -14,6 +14,8 @@ public class HexGrid : MonoBehaviour {
 
   public int seed;
 
+  //	public Color[] colors;
+
   HexGridChunk[] chunks;
   HexCell[] cells;
 
@@ -22,6 +24,7 @@ public class HexGrid : MonoBehaviour {
   void Awake() {
     HexMetrics.noiseSource = noiseSource;
     HexMetrics.InitializeHashGrid(seed);
+    //		HexMetrics.colors = colors;
     CreateMap(cellCountX, cellCountZ);
   }
 
@@ -31,21 +34,22 @@ public class HexGrid : MonoBehaviour {
       z <= 0 || z % HexMetrics.chunkSizeZ != 0
     ) {
       Debug.LogError("Unsupported map size.");
-      return true;
+      return false;
     }
+
     if (chunks != null) {
       for (int i = 0; i < chunks.Length; i++) {
         Destroy(chunks[i].gameObject);
       }
     }
+
     cellCountX = x;
     cellCountZ = z;
     chunkCountX = cellCountX / HexMetrics.chunkSizeX;
     chunkCountZ = cellCountZ / HexMetrics.chunkSizeZ;
-
     CreateChunks();
     CreateCells();
-    return false;
+    return true;
   }
 
   void CreateChunks() {
@@ -73,6 +77,7 @@ public class HexGrid : MonoBehaviour {
     if (!HexMetrics.noiseSource) {
       HexMetrics.noiseSource = noiseSource;
       HexMetrics.InitializeHashGrid(seed);
+      //			HexMetrics.colors = colors;
     }
   }
 
@@ -153,6 +158,7 @@ public class HexGrid : MonoBehaviour {
   public void Save(BinaryWriter writer) {
     writer.Write(cellCountX);
     writer.Write(cellCountZ);
+
     for (int i = 0; i < cells.Length; i++) {
       cells[i].Save(writer);
     }
@@ -169,6 +175,7 @@ public class HexGrid : MonoBehaviour {
         return;
       }
     }
+
     for (int i = 0; i < cells.Length; i++) {
       cells[i].Load(reader);
     }

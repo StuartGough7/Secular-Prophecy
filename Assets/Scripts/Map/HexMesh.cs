@@ -119,12 +119,6 @@ public class HexMesh : MonoBehaviour {
     terrainTypes.Add(types);
   }
 
-  public void AddQuadTerrainTypes(Vector3 types) {
-    terrainTypes.Add(types);
-    terrainTypes.Add(types);
-    terrainTypes.Add(types);
-    terrainTypes.Add(types);
-  }
   public void AddQuad(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) {
     int vertexIndex = vertices.Count;
     vertices.Add(HexMetrics.Perturb(v1));
@@ -202,5 +196,12 @@ public class HexMesh : MonoBehaviour {
     uv2s.Add(new Vector2(uMax, vMin));
     uv2s.Add(new Vector2(uMin, vMax));
     uv2s.Add(new Vector2(uMax, vMax));
+  }
+
+  public void AddQuadTerrainTypes(Vector3 types) {
+    terrainTypes.Add(types);
+    terrainTypes.Add(types);
+    terrainTypes.Add(types);
+    terrainTypes.Add(types);
   }
 }
