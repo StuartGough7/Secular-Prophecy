@@ -7,6 +7,8 @@ public class HexMapEditor : MonoBehaviour {
 
   public HexGrid hexGrid;
 
+  public Material terrainMaterial;
+
   int activeElevation;
   int activeWaterLevel;
 
@@ -204,6 +206,15 @@ public class HexMapEditor : MonoBehaviour {
           }
         }
       }
+    }
+  }
+
+  public void ShowGrid(bool visible) {
+    if (visible) {
+      Debug.Log("Enabling");
+      terrainMaterial.SetInt("GRID_ON_PROPERTY", 1);
+    } else {
+      terrainMaterial.SetInt("GRID_ON_PROPERTY", 0);
     }
   }
 }
