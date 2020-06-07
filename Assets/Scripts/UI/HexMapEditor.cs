@@ -23,6 +23,8 @@ public class HexMapEditor : MonoBehaviour {
 
   bool applyUrbanLevel, applyFarmLevel, applyPlantLevel, applySpecialIndex;
 
+  bool editMode;
+
   enum OptionalToggle {
     Ignore, Yes, No
   }
@@ -101,8 +103,8 @@ public class HexMapEditor : MonoBehaviour {
     activeSpecialIndex = (int)index;
   }
 
-  public void ShowUI(bool visible) {
-    hexGrid.ShowUI(visible);
+  void Awake() {
+    terrainMaterial.SetInt("GRID_ON_PROPERTY", 0);
   }
 
   void Update() {
@@ -126,7 +128,11 @@ public class HexMapEditor : MonoBehaviour {
       } else {
         isDrag = false;
       }
-      EditCells(currentCell);
+      if (editMode) {
+        EditCells(currentCell);
+      } else {
+        hexGrid.FindDistancesTo(currentCell);
+      }
       previousCell = currentCell;
     } else {
       previousCell = null;
@@ -211,10 +217,14 @@ public class HexMapEditor : MonoBehaviour {
 
   public void ShowGrid(bool visible) {
     if (visible) {
-      Debug.Log("Enabling");
       terrainMaterial.SetInt("GRID_ON_PROPERTY", 1);
     } else {
       terrainMaterial.SetInt("GRID_ON_PROPERTY", 0);
     }
+  }
+
+  public void SetEditMode(bool toggle) {
+    editMode = toggle;
+    hexGrid.ShowUI(!toggle);
   }
 }

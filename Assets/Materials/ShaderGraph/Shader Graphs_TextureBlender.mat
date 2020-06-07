@@ -29,5 +29,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_876FB2C5: 1
+    - Boolean_876FB2C5: 0
+    - GRID_ON_PROPERTY: 1
     m_Colors: []
