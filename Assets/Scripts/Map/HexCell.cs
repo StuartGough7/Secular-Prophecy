@@ -418,6 +418,17 @@ public class HexCell : MonoBehaviour {
     label.text = distance == int.MaxValue ? "" : distance.ToString();
   }
 
+  public void DisableHighlight() {
+    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
+    highlight.enabled = false;
+  }
+
+  public void EnableHighlight(Color color) {
+    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
+    highlight.color = color;
+    highlight.enabled = true;
+  }
+
   public void Save(BinaryWriter writer) {
     writer.Write((byte)terrainTypeIndex);
     writer.Write((byte)elevation);
