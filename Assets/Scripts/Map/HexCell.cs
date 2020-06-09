@@ -221,7 +221,6 @@ public class HexCell : MonoBehaviour {
     }
     set {
       distance = value;
-      UpdateDistanceLabel();
     }
   }
 
@@ -425,9 +424,9 @@ public class HexCell : MonoBehaviour {
     chunk.Refresh();
   }
 
-  void UpdateDistanceLabel() {
-    Text label = uiRect.GetComponent<Text>();
-    label.text = distance == int.MaxValue ? "" : distance.ToString();
+  public void SetLabel(string text) {
+    UnityEngine.UI.Text label = uiRect.GetComponent<Text>();
+    label.text = text;
   }
 
   public void DisableHighlight() {

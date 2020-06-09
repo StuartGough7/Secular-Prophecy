@@ -137,11 +137,11 @@ public class HexMapEditor : MonoBehaviour {
         searchFromCell = currentCell;
         searchFromCell.EnableHighlight(Color.blue);
         if (searchToCell) {
-          hexGrid.FindPath(searchFromCell, searchToCell);
+          hexGrid.FindPath(searchFromCell, searchToCell, 24);
         }
       } else if (searchFromCell && searchFromCell != currentCell) {
         searchToCell = currentCell;
-        hexGrid.FindPath(searchFromCell, searchToCell);
+        hexGrid.FindPath(searchFromCell, searchToCell, 24);
       }
       previousCell = currentCell;
     } else {
