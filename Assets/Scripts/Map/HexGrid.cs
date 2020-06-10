@@ -158,11 +158,10 @@ public class HexGrid : MonoBehaviour {
   }
 
   public void FindPath(HexCell fromCell, HexCell toCell, int speed) {
-    StopAllCoroutines();
-    StartCoroutine(Search(fromCell, toCell, speed));
+    Search(fromCell, toCell, speed);
   }
 
-  IEnumerator Search(HexCell fromCell, HexCell toCell, int speed) {
+  void Search(HexCell fromCell, HexCell toCell, int speed) {
     if (searchFrontier == null) {
       searchFrontier = new HexCellPriorityQueue();
     } else {
@@ -174,20 +173,18 @@ public class HexGrid : MonoBehaviour {
       cells[i].DisableHighlight();
     }
     fromCell.EnableHighlight(Color.blue);
-    toCell.EnableHighlight(Color.red);
-
-    WaitForSeconds delay = new WaitForSeconds(1 / 60f);
     fromCell.Distance = 0;
     searchFrontier.Enqueue(fromCell);
     while (searchFrontier.Count > 0) {
-      yield return delay;
       HexCell current = searchFrontier.Dequeue();
       if (current == toCell) {
-        current = current.PathFrom;
         while (current != fromCell) {
+          int turn = current.Distance / speed;
+          current.SetLabel(turn.ToString());
           current.EnableHighlight(Color.white);
           current = current.PathFrom;
         }
+        toCell.EnableHighlight(Color.red);
         break;
       }
       int currentTurn = current.Distance / speed;
@@ -222,14 +219,12 @@ public class HexGrid : MonoBehaviour {
         }
         if (neighbor.Distance == int.MaxValue) {
           neighbor.Distance = distance;
-          neighbor.SetLabel(turn.ToString());
           neighbor.PathFrom = current;
           neighbor.SearchHeuristic = neighbor.coordinates.DistanceTo(toCell.coordinates);
           searchFrontier.Enqueue(neighbor);
         } else if (distance < neighbor.Distance) {
           int oldPriority = neighbor.SearchPriority;
           neighbor.Distance = distance;
-          neighbor.SetLabel(turn.ToString());
           neighbor.PathFrom = current;
           searchFrontier.Change(neighbor, oldPriority);
         }
@@ -247,7 +242,6 @@ public class HexGrid : MonoBehaviour {
   }
 
   public void Load(BinaryReader reader, int header) {
-    StopAllCoroutines();
     int x = 20, z = 15;
     if (header >= 1) {
       x = reader.ReadInt32();
