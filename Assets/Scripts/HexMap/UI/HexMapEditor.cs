@@ -106,14 +106,14 @@ public class HexMapEditor : MonoBehaviour {
 
   public void ShowGrid(bool visible) {
     if (visible) {
-      terrainMaterial.EnableKeyword("GRID_ON");
+      terrainMaterial.SetInt("GRID_ON_PROPERTY", 1);
     } else {
-      terrainMaterial.DisableKeyword("GRID_ON");
+      terrainMaterial.SetInt("GRID_ON_PROPERTY", 0);
     }
   }
 
   void Awake() {
-    terrainMaterial.DisableKeyword("GRID_ON");
+    terrainMaterial.SetInt("GRID_ON_PROPERTY", 0);
     SetEditMode(false);
   }
 
