@@ -238,6 +238,8 @@ public class HexCell : MonoBehaviour {
 
   public int SearchPhase { get; set; }
 
+  public HexUnit Unit { get; set; }
+
   int terrainTypeIndex;
 
   int elevation = int.MinValue;
@@ -419,11 +421,17 @@ public class HexCell : MonoBehaviour {
           neighbor.chunk.Refresh();
         }
       }
+      if (Unit) {
+        Unit.ValidateLocation();
+      }
     }
   }
 
   void RefreshSelfOnly() {
     chunk.Refresh();
+    if (Unit) {
+      Unit.ValidateLocation();
+    }
   }
 
   public void SetLabel(string text) {
