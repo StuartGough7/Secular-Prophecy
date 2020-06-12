@@ -14,12 +14,6 @@ public class NewMapMenu : MonoBehaviour {
     HexMapCamera.Locked = false;
   }
 
-  void CreateMap(int x, int z) {
-    hexGrid.CreateMap(x, z);
-    HexMapCamera.ValidatePosition();
-    Close();
-  }
-
   public void CreateSmallMap() {
     CreateMap(20, 15);
   }
@@ -30,5 +24,11 @@ public class NewMapMenu : MonoBehaviour {
 
   public void CreateLargeMap() {
     CreateMap(80, 60);
+  }
+
+  void CreateMap(int x, int z) {
+    hexGrid.CreateMap(x, z);
+    HexMapCamera.ValidatePosition();
+    Close();
   }
 }

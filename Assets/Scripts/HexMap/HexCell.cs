@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
+using System.IO;
 
 public class HexCell : MonoBehaviour {
 
@@ -224,6 +224,8 @@ public class HexCell : MonoBehaviour {
     }
   }
 
+  public HexUnit Unit { get; set; }
+
   public HexCell PathFrom { get; set; }
 
   public int SearchHeuristic { get; set; }
@@ -234,11 +236,9 @@ public class HexCell : MonoBehaviour {
     }
   }
 
-  public HexCell NextWithSamePriority { get; set; }
-
   public int SearchPhase { get; set; }
 
-  public HexUnit Unit { get; set; }
+  public HexCell NextWithSamePriority { get; set; }
 
   int terrainTypeIndex;
 
@@ -249,9 +249,9 @@ public class HexCell : MonoBehaviour {
 
   int specialIndex;
 
-  bool walled;
-
   int distance;
+
+  bool walled;
 
   bool hasIncomingRiver, hasOutgoingRiver;
   HexDirection incomingRiver, outgoingRiver;
@@ -434,22 +434,6 @@ public class HexCell : MonoBehaviour {
     }
   }
 
-  public void SetLabel(string text) {
-    UnityEngine.UI.Text label = uiRect.GetComponent<Text>();
-    label.text = text;
-  }
-
-  public void DisableHighlight() {
-    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
-    highlight.enabled = false;
-  }
-
-  public void EnableHighlight(Color color) {
-    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
-    highlight.color = color;
-    highlight.enabled = true;
-  }
-
   public void Save(BinaryWriter writer) {
     writer.Write((byte)terrainTypeIndex);
     writer.Write((byte)elevation);
@@ -512,5 +496,21 @@ public class HexCell : MonoBehaviour {
     for (int i = 0; i < roads.Length; i++) {
       roads[i] = (roadFlags & (1 << i)) != 0;
     }
+  }
+
+  public void SetLabel(string text) {
+    UnityEngine.UI.Text label = uiRect.GetComponent<Text>();
+    label.text = text;
+  }
+
+  public void DisableHighlight() {
+    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
+    highlight.enabled = false;
+  }
+
+  public void EnableHighlight(Color color) {
+    Image highlight = uiRect.GetChild(0).GetComponent<Image>();
+    highlight.color = color;
+    highlight.enabled = true;
   }
 }

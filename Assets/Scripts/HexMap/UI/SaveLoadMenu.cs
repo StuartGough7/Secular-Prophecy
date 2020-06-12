@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
 using System;
-
+using System.IO;
 
 public class SaveLoadMenu : MonoBehaviour {
 
-  public HexGrid hexGrid;
   public Text menuLabel, actionButtonLabel;
-  public InputField nameInput;
 
-  bool saveMode;
+  public InputField nameInput;
 
   public RectTransform listContent;
 
   public SaveLoadItem itemPrefab;
+
+  public HexGrid hexGrid;
+
+  bool saveMode;
 
   public void Open(bool saveMode) {
     this.saveMode = saveMode;
@@ -48,16 +49,20 @@ public class SaveLoadMenu : MonoBehaviour {
     Close();
   }
 
-  string GetSelectedPath() {
-    string mapName = nameInput.text;
-    if (mapName.Length == 0) {
-      return null;
-    }
-    return Path.Combine(Application.persistentDataPath, mapName + ".map");
-  }
-
   public void SelectItem(string name) {
     nameInput.text = name;
+  }
+
+  public void Delete() {
+    string path = GetSelectedPath();
+    if (path == null) {
+      return;
+    }
+    if (File.Exists(path)) {
+      File.Delete(path);
+    }
+    nameInput.text = "";
+    FillList();
   }
 
   void FillList() {
@@ -75,18 +80,25 @@ public class SaveLoadMenu : MonoBehaviour {
     }
   }
 
-  public void Save(string path) {
-    Debug.Log(Application.persistentDataPath);
+  string GetSelectedPath() {
+    string mapName = nameInput.text;
+    if (mapName.Length == 0) {
+      return null;
+    }
+    return Path.Combine(Application.persistentDataPath, mapName + ".map");
+  }
+
+  void Save(string path) {
     using (
       BinaryWriter writer =
-        new BinaryWriter(File.Open(path, FileMode.Create))
+      new BinaryWriter(File.Open(path, FileMode.Create))
     ) {
-      writer.Write(2); // version of our map save, compatiabilty between versions
+      writer.Write(2);
       hexGrid.Save(writer);
     }
   }
 
-  public void Load(string path) {
+  void Load(string path) {
     if (!File.Exists(path)) {
       Debug.LogError("File does not exist " + path);
       return;
@@ -100,17 +112,5 @@ public class SaveLoadMenu : MonoBehaviour {
         Debug.LogWarning("Unknown map format " + header);
       }
     }
-  }
-
-  public void Delete() {
-    string path = GetSelectedPath();
-    if (path == null) {
-      return;
-    }
-    if (File.Exists(path)) {
-      File.Delete(path);
-    }
-    nameInput.text = "";
-    FillList();
   }
 }

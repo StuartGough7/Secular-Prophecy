@@ -2,7 +2,8 @@
 
 public class HexFeatureManager : MonoBehaviour {
 
-  public HexFeatureCollection[] urbanCollections, farmCollections, plantCollections;
+  public HexFeatureCollection[]
+    urbanCollections, farmCollections, plantCollections;
 
   public HexMesh walls;
 

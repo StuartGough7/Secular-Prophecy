@@ -3,6 +3,7 @@
 public class HexCellPriorityQueue {
 
   List<HexCell> list = new List<HexCell>();
+
   int count = 0;
   int minimum = int.MaxValue;
 
@@ -36,6 +37,7 @@ public class HexCellPriorityQueue {
     }
     return null;
   }
+
   public void Change(HexCell cell, int oldPriority) {
     HexCell current = list[oldPriority];
     HexCell next = current.NextWithSamePriority;
@@ -51,7 +53,6 @@ public class HexCellPriorityQueue {
     Enqueue(cell);
     count -= 1;
   }
-
 
   public void Clear() {
     list.Clear();
