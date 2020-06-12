@@ -7,6 +7,11 @@ using System.Collections;
 public class HexUnit : MonoBehaviour {
 
   public static HexUnit unitPrefab;
+  Animator animator;
+
+  void Awake() {
+    animator = gameObject.GetComponentInChildren<Animator>();
+  }
 
   public HexCell Location {
     get {
@@ -70,7 +75,7 @@ public class HexUnit : MonoBehaviour {
     transform.localPosition = c;
     yield return LookAt(pathToTravel[1].Position);
     float t = Time.deltaTime * travelSpeed;
-
+    animator.SetBool("isMoving", true);
     for (int i = 1; i < pathToTravel.Count; i++) {
       a = c;
       b = pathToTravel[i - 1].Position;
@@ -96,6 +101,7 @@ public class HexUnit : MonoBehaviour {
       transform.localRotation = Quaternion.LookRotation(d);
       yield return null;
     }
+    animator.SetBool("isMoving", false);
     transform.localPosition = location.Position;
     orientation = transform.localRotation.eulerAngles.y;
     ListPool<HexCell>.Add(pathToTravel);
