@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
+using System.Collections;
+
 
 public class HexUnit : MonoBehaviour {
 
@@ -20,6 +23,7 @@ public class HexUnit : MonoBehaviour {
   }
 
   HexCell location;
+  List<HexCell> pathToTravel;
 
   public float Orientation {
     get {
@@ -32,6 +36,7 @@ public class HexUnit : MonoBehaviour {
   }
 
   float orientation;
+  const float travelSpeed = 4f;
 
   public void ValidateLocation() {
     transform.localPosition = location.Position;
@@ -44,6 +49,37 @@ public class HexUnit : MonoBehaviour {
   public void Die() {
     location.Unit = null;
     Destroy(gameObject);
+  }
+
+  public void Travel(List<HexCell> path) {
+    Location = path[path.Count - 1];
+    pathToTravel = path;
+    StopAllCoroutines();
+    StartCoroutine(TravelPath());
+  }
+
+  IEnumerator TravelPath() {
+    for (int i = 1; i < pathToTravel.Count; i++) {
+      Vector3 a = pathToTravel[i - 1].Position;
+      Vector3 b = pathToTravel[i].Position;
+      for (float t = 0f; t < 1f; t += Time.deltaTime * travelSpeed) {
+        transform.localPosition = Vector3.Lerp(a, b, t);
+        yield return null;
+      }
+    }
+  }
+  void OnDrawGizmos() {
+    if (pathToTravel == null || pathToTravel.Count == 0) {
+      return;
+    }
+
+    for (int i = 1; i < pathToTravel.Count; i++) {
+      Vector3 a = pathToTravel[i - 1].Position;
+      Vector3 b = pathToTravel[i].Position;
+      for (float t = 0f; t < 1f; t += 0.1f) {
+        Gizmos.DrawSphere(Vector3.Lerp(a, b, t), 2f);
+      }
+    }
   }
 
   public void Save(BinaryWriter writer) {

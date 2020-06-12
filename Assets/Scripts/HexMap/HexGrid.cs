@@ -280,6 +280,18 @@ public class HexGrid : MonoBehaviour {
     currentPathExists = Search(fromCell, toCell, speed);
     ShowPath(speed);
   }
+  public List<HexCell> GetPath() {
+    if (!currentPathExists) {
+      return null;
+    }
+    List<HexCell> path = ListPool<HexCell>.Get();
+    for (HexCell c = currentPathTo; c != currentPathFrom; c = c.PathFrom) {
+      path.Add(c);
+    }
+    path.Add(currentPathFrom);
+    path.Reverse();
+    return path;
+  }
 
   bool Search(HexCell fromCell, HexCell toCell, int speed) {
     searchFrontierPhase += 2;
