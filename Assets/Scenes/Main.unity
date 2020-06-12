@@ -1103,6 +1103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b2d4a5b1fb9044181b1a56bbfa422f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitPrefab: {fileID: 5835137196280805967, guid: 13d0da277c5bb8e42988bdfb5677e461,
+    type: 3}
   cellCountX: 20
   cellCountZ: 15
   cellPrefab: {fileID: 8341898301289204893, guid: 59191e7cdddd7b545833bcf213349200,
@@ -7131,8 +7133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexGrid: {fileID: 143803612}
   terrainMaterial: {fileID: 2100000, guid: e5e782c5c4bb2574f88e4119ff0def50, type: 2}
-  unitPrefab: {fileID: 5835137196280805967, guid: 13d0da277c5bb8e42988bdfb5677e461,
-    type: 3}
 --- !u!114 &939927828
 MonoBehaviour:
   m_ObjectHideFlags: 0
