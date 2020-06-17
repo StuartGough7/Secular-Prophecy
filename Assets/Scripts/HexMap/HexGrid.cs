@@ -37,10 +37,14 @@ public class HexGrid : MonoBehaviour {
 
   List<HexUnit> units = new List<HexUnit>();
 
+  // HexCellShaderData cellShaderData;
+  public HexCellShaderData cellShaderData;
+
   void Awake() {
     HexMetrics.noiseSource = noiseSource;
     HexMetrics.InitializeHashGrid(seed);
     HexUnit.unitPrefab = unitPrefab;
+    // cellShaderData = gameObject.AddComponent<HexCellShaderData>();
     CreateMap(cellCountX, cellCountZ);
   }
 
@@ -77,6 +81,7 @@ public class HexGrid : MonoBehaviour {
     cellCountZ = z;
     chunkCountX = cellCountX / HexMetrics.chunkSizeX;
     chunkCountZ = cellCountZ / HexMetrics.chunkSizeZ;
+    cellShaderData.Initialize(cellCountX, cellCountZ);
     CreateChunks();
     CreateCells();
     return true;
@@ -161,6 +166,8 @@ public class HexGrid : MonoBehaviour {
     HexCell cell = cells[i] = Instantiate<HexCell>(cellPrefab);
     cell.transform.localPosition = position;
     cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
+    cell.Index = i;
+    cell.ShaderData = cellShaderData;
 
     if (x > 0) {
       cell.SetNeighbor(HexDirection.W, cells[i - 1]);
@@ -242,6 +249,19 @@ public class HexGrid : MonoBehaviour {
     }
   }
 
+  public List<HexCell> GetPath() {
+    if (!currentPathExists) {
+      return null;
+    }
+    List<HexCell> path = ListPool<HexCell>.Get();
+    for (HexCell c = currentPathTo; c != currentPathFrom; c = c.PathFrom) {
+      path.Add(c);
+    }
+    path.Add(currentPathFrom);
+    path.Reverse();
+    return path;
+  }
+
   public void ClearPath() {
     if (currentPathExists) {
       HexCell current = currentPathTo;
@@ -279,18 +299,6 @@ public class HexGrid : MonoBehaviour {
     currentPathTo = toCell;
     currentPathExists = Search(fromCell, toCell, speed);
     ShowPath(speed);
-  }
-  public List<HexCell> GetPath() {
-    if (!currentPathExists) {
-      return null;
-    }
-    List<HexCell> path = ListPool<HexCell>.Get();
-    for (HexCell c = currentPathTo; c != currentPathFrom; c = c.PathFrom) {
-      path.Add(c);
-    }
-    path.Add(currentPathFrom);
-    path.Reverse();
-    return path;
   }
 
   bool Search(HexCell fromCell, HexCell toCell, int speed) {

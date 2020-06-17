@@ -10,6 +10,8 @@ public class HexCell : MonoBehaviour {
 
   public HexGridChunk chunk;
 
+  public int Index { get; set; }
+
   public int Elevation {
     get {
       return elevation;
@@ -210,7 +212,8 @@ public class HexCell : MonoBehaviour {
     set {
       if (terrainTypeIndex != value) {
         terrainTypeIndex = value;
-        Refresh();
+        //				Refresh();
+        ShaderData.RefreshTerrain(this);
       }
     }
   }
@@ -239,6 +242,8 @@ public class HexCell : MonoBehaviour {
   public int SearchPhase { get; set; }
 
   public HexCell NextWithSamePriority { get; set; }
+
+  public HexCellShaderData ShaderData { get; set; }
 
   int terrainTypeIndex;
 
@@ -467,6 +472,7 @@ public class HexCell : MonoBehaviour {
 
   public void Load(BinaryReader reader) {
     terrainTypeIndex = reader.ReadByte();
+    ShaderData.RefreshTerrain(this);
     elevation = reader.ReadByte();
     RefreshPosition();
     waterLevel = reader.ReadByte();
