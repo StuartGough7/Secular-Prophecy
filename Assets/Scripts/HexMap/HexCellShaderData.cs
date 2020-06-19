@@ -16,14 +16,9 @@ public class HexCellShaderData : MonoBehaviour {
       );
       cellTexture.filterMode = FilterMode.Point;
       cellTexture.wrapMode = TextureWrapMode.Clamp;
-      // terrainMaterial.SetInt("GRID_ON_PROPERTY", 1);
       terrainMaterial.SetTexture("_HexCellData", cellTexture);
-      // Shader.SetGlobalTexture("_HexCellData", cellTexture);
     }
-    // Shader.SetGlobalVector(
-    //   "_HexCellData_TexelSize",
-    //   new Vector4(1f / x, 1f / z, x, z)
-    // );
+    terrainMaterial.SetVector("_HexCellTextureSize", new Vector4(1f / x, 1f / z, x, z));
 
     if (cellTextureData == null || cellTextureData.Length != x * z) {
       cellTextureData = new Color32[x * z];
