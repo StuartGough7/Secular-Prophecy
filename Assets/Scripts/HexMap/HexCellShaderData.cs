@@ -4,8 +4,7 @@ public class HexCellShaderData : MonoBehaviour {
 
   Texture2D cellTexture;
   Color32[] cellTextureData;
-  public Material terrainMaterial;
-
+  public Material[] shaderMaterials;
 
   public void Initialize(int x, int z) {
     if (cellTexture) {
@@ -16,9 +15,13 @@ public class HexCellShaderData : MonoBehaviour {
       );
       cellTexture.filterMode = FilterMode.Point;
       cellTexture.wrapMode = TextureWrapMode.Clamp;
-      terrainMaterial.SetTexture("_HexCellData", cellTexture);
+      foreach (Material shader in shaderMaterials) {
+        shader.SetTexture("_HexCellData", cellTexture);
+      }
     }
-    terrainMaterial.SetVector("_HexCellTextureSize", new Vector4(1f / x, 1f / z, x, z));
+    foreach (Material shader in shaderMaterials) {
+      shader.SetVector("_HexCellTextureSize", new Vector4(1f / x, 1f / z, x, z));
+    }
 
     if (cellTextureData == null || cellTextureData.Length != x * z) {
       cellTextureData = new Color32[x * z];

@@ -1145,7 +1145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584d951c733a1584696ef66a640a2e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainMaterial: {fileID: 2100000, guid: e5e782c5c4bb2574f88e4119ff0def50, type: 2}
+  shaderMaterials:
+  - {fileID: 2100000, guid: e5e782c5c4bb2574f88e4119ff0def50, type: 2}
+  - {fileID: 2100000, guid: 5ac397536f04acc4faa52005dd1da404, type: 2}
 --- !u!1 &144073899
 GameObject:
   m_ObjectHideFlags: 0
