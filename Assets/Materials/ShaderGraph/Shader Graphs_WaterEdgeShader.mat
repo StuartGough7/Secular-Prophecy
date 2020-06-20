@@ -20,6 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_B648503A:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HexCellData:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_7C298889_Texture_1:
         m_Texture: {fileID: 2800000, guid: 6bab86340d523db458d9c59e6be04776, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -32,6 +40,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 6bab86340d523db458d9c59e6be04776, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _VisibiltyFromCellData_39194AF1_Texture2D26A54B21_1532031071:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_309E5329: 7
     - Vector1_48E91DA5: 1
@@ -41,3 +53,4 @@ Material:
     m_Colors:
     - Color_1CE76DF7: {r: 3.031433, g: 3.031433, b: 3.031433, a: 0}
     - Color_9D0CF47B: {r: 0, g: 0.45470572, b: 1, a: 0.41960785}
+    - _HexCellTextureSize: {r: 0.05, g: 0.06666667, b: 20, a: 15}
