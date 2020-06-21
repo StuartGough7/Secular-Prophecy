@@ -51,5 +51,6 @@ Material:
     m_Floats:
     - Boolean_876FB2C5: 0
     - GRID_ON_PROPERTY: 0
+    - HEX_MAP_EDIT_MODE: 0
     m_Colors:
     - _HexCellTextureSize: {r: 0.05, g: 0.06666667, b: 20, a: 15}
