@@ -15,13 +15,12 @@ public class HexCellShaderData : MonoBehaviour {
       );
       cellTexture.filterMode = FilterMode.Point;
       cellTexture.wrapMode = TextureWrapMode.Clamp;
-      foreach (Material shader in shaderMaterials) {
-        shader.SetTexture("_HexCellData", cellTexture);
-      }
+      Shader.SetGlobalTexture("_HexCellData", cellTexture);
     }
-    foreach (Material shader in shaderMaterials) {
-      shader.SetVector("_HexCellTextureSize", new Vector4(1f / x, 1f / z, x, z));
-    }
+    Shader.SetGlobalVector(
+      "_HexCellTextureSize",
+      new Vector4(1f / x, 1f / z, x, z)
+    );
 
     if (cellTextureData == null || cellTextureData.Length != x * z) {
       cellTextureData = new Color32[x * z];

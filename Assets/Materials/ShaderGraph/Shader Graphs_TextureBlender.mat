@@ -50,6 +50,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_876FB2C5: 0
+    - GRID: 0
     - GRID_ON_PROPERTY: 0
     - HEX_MAP_EDIT_MODE: 0
     m_Colors:

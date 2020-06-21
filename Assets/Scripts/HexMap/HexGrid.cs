@@ -37,14 +37,13 @@ public class HexGrid : MonoBehaviour {
 
   List<HexUnit> units = new List<HexUnit>();
 
-  // HexCellShaderData cellShaderData;
-  public HexCellShaderData cellShaderData;
+  HexCellShaderData cellShaderData;
 
   void Awake() {
     HexMetrics.noiseSource = noiseSource;
     HexMetrics.InitializeHashGrid(seed);
     HexUnit.unitPrefab = unitPrefab;
-    // cellShaderData = gameObject.AddComponent<HexCellShaderData>();
+    cellShaderData = gameObject.AddComponent<HexCellShaderData>();
     CreateMap(cellCountX, cellCountZ);
   }
 
