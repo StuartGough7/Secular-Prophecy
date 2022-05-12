@@ -4,7 +4,6 @@ public class HexCellShaderData : MonoBehaviour {
 
   Texture2D cellTexture;
   Color32[] cellTextureData;
-  public Material[] shaderMaterials;
 
   public void Initialize(int x, int z) {
     if (cellTexture) {
@@ -38,7 +37,9 @@ public class HexCellShaderData : MonoBehaviour {
   }
 
   public void RefreshVisibility(HexCell cell) {
-    cellTextureData[cell.Index].r = cell.IsVisible ? (byte)255 : (byte)0;
+    int index = cell.Index;
+    cellTextureData[index].r = cell.IsVisible ? (byte)255 : (byte)0;
+    cellTextureData[index].g = cell.IsExplored ? (byte)255 : (byte)0;
     enabled = true;
   }
 
